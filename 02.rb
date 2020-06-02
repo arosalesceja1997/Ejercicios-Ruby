@@ -1,37 +1,27 @@
 # frozen_string_literal: true
 
-# def tabla(n)
-#   i = 0
-#   if (n > 0) && (n <= 10)
-#     while i <= 10
-#       puts "#{n}x#{i} = #{n * i}"
-#       i += 1
-#     end
-#   end
-# end
+# print 'tamaño de tablero: '
+board_size = 10
 
-# print 'Ingresa el numero de la tabla: '
-# n = gets
-# tabla(n.to_i)
+# puts board_size
+board_size = board_size.to_i # transforma string a integer
+# board_size es 0 si no se recibe un numero valido de entrada
+board = []
 
-require 'matrix'
-
-class GameLife
-  def game
-    matrix = [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]
-    j = 0
-    matrix.each do |i|
-      j += 1
-      if j < 2
-        print i
-      elsif j == 2
-        puts i
-      else
-        print i
-      end
-    end
+# llenar tablero
+board_size.times do
+  column = []
+  board_size.times do
+    column.push 'x'
   end
+  board.push column
 end
 
-x = GameLife.new
-x.game
+# imprimir matriz
+board.each do |column|
+  column.each do |card|
+    print card
+    print ' ' # print no imprime un salto de linea al final del output
+  end
+  puts '' # salto de linea
+end
